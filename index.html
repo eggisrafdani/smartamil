@@ -35,7 +35,21 @@
         allow="clipboard-read; clipboard-write"
         title="Money Tracker">
     </iframe>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+          console.log('ServiceWorker sukses didaftarkan dengan scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.log('ServiceWorker gagal didaftarkan: ', err);
+        });
+    });
+  }
+</script>
 </body>
 
 </html>
+
 
